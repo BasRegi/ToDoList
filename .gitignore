@@ -1,5 +1,14 @@
-# Created by https://www.toptal.com/developers/gitignore/api/vue,vuejs,visualstudio
-# Edit at https://www.toptal.com/developers/gitignore?templates=vue,vuejs,visualstudio
+# Created by https://www.toptal.com/developers/gitignore/api/vue,vuejs,visualstudio,dotnetcore
+# Edit at https://www.toptal.com/developers/gitignore?templates=vue,vuejs,visualstudio,dotnetcore
+
+### DotnetCore ###
+# .NET Core build folders
+bin/
+obj/
+
+# Common node modules locations
+/node_modules
+/wwwroot/node_modules
 
 ### Vue ###
 # gitignore template for Vue.js projects
@@ -374,4 +383,4 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
-# End of https://www.toptal.com/developers/gitignore/api/vue,vuejs,visualstudio
+# End of https://www.toptal.com/developers/gitignore/api/vue,vuejs,visualstudio,dotnetcore
