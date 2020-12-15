@@ -1,6 +1,8 @@
 # ToDoList
 A simple ToDoList WebApp built using .NET Core (backend) and Vue.js (frontend) to learn these frameworks.
 
+### How to use
+
 ### Resources:
 - [Single Page Architectures](https://www.youtube.com/watch?v=DH2yUVQDB0I) - A video explaining how a SPA application can 
 be built using Vue.js and ASP.NET Core
