@@ -8,7 +8,10 @@ namespace backend.Data
 {
     public interface IToDoListRepo
     {
+        bool SaveChanges();
+
         IEnumerable<ToDoItem> GetAll();
         ToDoItem GetItemById(int Id);
+        void CreateItem(ToDoItem item);
     }
 }

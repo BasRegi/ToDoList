@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using backend.Data;
+using backend.DTOs;
 using backend.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,10 +15,12 @@ namespace backend.Controllers
     public class ToDoItemsController : ControllerBase
     {
         private readonly IToDoListRepo _repository;
+        private readonly IMapper _mapper;
 
-        public ToDoItemsController(IToDoListRepo repository)
+        public ToDoItemsController(IToDoListRepo repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
         //GET api/toditems
@@ -25,18 +29,36 @@ namespace backend.Controllers
         {
             var items = _repository.GetAll();
 
-            return Ok(items);
+            return Ok(_mapper.Map<IEnumerable<ToDoItemReadDTO>>(items));
         }
 
         //GET api/todoitems/{id}
-        [HttpGet("{id}")]
-        public ActionResult<ToDoItem> GetItemById(int id)
+        [HttpGet("{id}", Name = "GetItemById")]
+        public ActionResult<ToDoItemReadDTO> GetItemById(int id)
         {
             var item = _repository.GetItemById(id);
 
-            return Ok(item);
+            if(item != null)
+            {
+                return Ok(_mapper.Map<ToDoItemReadDTO>(item));
+            }
+
+            return NotFound();
         }
 
+        //POST api/todoitems
+        [HttpPost]
+        public ActionResult<ToDoItemReadDTO> CreateItem(ToDoItemCreateDTO itemCreateDTO)
+        {
+            var item = _mapper.Map<ToDoItem>(itemCreateDTO);
+            item.CreatedOn = DateTime.Now;
+            
+            _repository.CreateItem(item);
+            _repository.SaveChanges();
 
+            var itemReadDTO =_mapper.Map<ToDoItemReadDTO>(item);
+
+            return CreatedAtRoute(nameof(GetItemById), new { Id = itemReadDTO.Id }, itemReadDTO);
+        }
     }
 }

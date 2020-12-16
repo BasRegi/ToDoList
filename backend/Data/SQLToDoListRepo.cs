@@ -15,6 +15,16 @@ namespace backend.Data
             _context = context;
         }
 
+        public void CreateItem(ToDoItem item)
+        {
+            if(item == null)
+            {
+                throw new ArgumentNullException(nameof(item));
+            }
+
+            _context.ToDoItems.Add(item);
+        }
+
         public IEnumerable<ToDoItem> GetAll()
         {
             return _context.ToDoItems.ToList();
@@ -23,6 +33,11 @@ namespace backend.Data
         public ToDoItem GetItemById(int Id)
         {
             return _context.ToDoItems.FirstOrDefault(x => x.Id == Id);
+        }
+
+        public bool SaveChanges()
+        {
+           return (_context.SaveChanges() >= 0);
         }
     }
 }
