@@ -35,6 +35,11 @@ namespace backend.Data
             return _context.ToDoItems.FirstOrDefault(x => x.Id == Id);
         }
 
+        public void UpdateItem(ToDoItem item)
+        {
+            
+        }
+
         public bool SaveChanges()
         {
            return (_context.SaveChanges() >= 0);

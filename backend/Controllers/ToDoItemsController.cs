@@ -58,7 +58,25 @@ namespace backend.Controllers
 
             var itemReadDTO =_mapper.Map<ToDoItemReadDTO>(item);
 
-            return CreatedAtRoute(nameof(GetItemById), new { Id = itemReadDTO.Id }, itemReadDTO);
+            return CreatedAtRoute(nameof(GetItemById), new { itemReadDTO.Id }, itemReadDTO);
+        }
+
+        //PUT api/todoitems/{id}
+        [HttpPut("{id}")]
+        public ActionResult UpdateItem(int id, ToDoItemUpdateDTO itemUpdateDTO)
+        {
+            var item = _repository.GetItemById(id);
+
+            if(item == null)
+            {
+                return NotFound();
+            }
+
+            _mapper.Map(itemUpdateDTO, item);
+            _repository.UpdateItem(item);
+            _repository.SaveChanges();
+
+            return NoContent();
         }
     }
 }

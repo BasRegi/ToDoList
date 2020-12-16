@@ -13,5 +13,6 @@ namespace backend.Data
         IEnumerable<ToDoItem> GetAll();
         ToDoItem GetItemById(int Id);
         void CreateItem(ToDoItem item);
+        void UpdateItem(ToDoItem item);
     }
 }
