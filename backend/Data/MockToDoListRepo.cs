@@ -17,27 +17,30 @@ namespace backend.Data
             {
                 new ToDoItem
                 {
-                Id = 1,
-                Title = "Mock Item 1",
-                Description = "Mock Description 1",
-                CreatedOn = DateTime.Today,
-                Deadline = DateTime.Today.AddDays(10.0)
+                    Id = 1,
+                    Title = "Mock Item 1",
+                    Description = "Mock Description 1",
+                    CreatedOn = DateTime.Today,
+                    Deadline = DateTime.Today.AddDays(10.0),
+                    isComplete = false
                 },
                 new ToDoItem
                 {
-                Id = 2,
-                Title = "Mock Item 2",
-                Description = "Mock Description 2",
-                CreatedOn = DateTime.Today,
-                Deadline = DateTime.Today.AddDays(5.0)
+                    Id = 2,
+                    Title = "Mock Item 2",
+                    Description = "Mock Description 2",
+                    CreatedOn = DateTime.Today,
+                    Deadline = DateTime.Today.AddDays(5.0),
+                    isComplete = false
                 },
                 new ToDoItem
                 {
-                Id = 2,
-                Title = "Mock Item 3",
-                Description = "Mock Description 3",
-                CreatedOn = DateTime.Today,
-                Deadline = DateTime.Today.AddDays(3.0)
+                    Id = 3,
+                    Title = "Mock Item 3",
+                    Description = "Mock Description 3",
+                    CreatedOn = DateTime.Today,
+                    Deadline = DateTime.Today.AddDays(3.0),
+                    isComplete = false
                 },
             };
 
@@ -52,7 +55,8 @@ namespace backend.Data
                 Title = "Mock Item",
                 Description = "Mock Description",
                 CreatedOn = DateTime.Today,
-                Deadline = DateTime.Today.AddDays(10.0)
+                Deadline = DateTime.Today.AddDays(10.0),
+                isComplete = false
             };
         }
     }
