@@ -15,6 +15,7 @@ namespace backend.Profiles
             CreateMap<ToDoItem, ToDoItemReadDTO>();
             CreateMap<ToDoItemCreateDTO, ToDoItem>();
             CreateMap<ToDoItemUpdateDTO, ToDoItem>();
+            CreateMap<ToDoItem, ToDoItemUpdateDTO>();
         }
     }
 }

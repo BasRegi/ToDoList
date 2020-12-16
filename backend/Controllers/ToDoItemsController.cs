@@ -6,6 +6,7 @@ using AutoMapper;
 using backend.Data;
 using backend.DTOs;
 using backend.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers
@@ -78,5 +79,32 @@ namespace backend.Controllers
 
             return NoContent();
         }
+
+        //PATCH api/todoitems/{id}
+        [HttpPatch("{id}")]
+        public ActionResult PartialUpdateItem(int id, JsonPatchDocument<ToDoItemUpdateDTO> patchDoc)
+        {
+            var item = _repository.GetItemById(id);
+
+            if (item == null)
+            {
+                return NotFound();
+            }
+
+            var itemUpdateDTO = _mapper.Map<ToDoItemUpdateDTO>(item);
+            
+            patchDoc.ApplyTo(itemUpdateDTO, ModelState);
+            if(!TryValidateModel(itemUpdateDTO))
+            {
+                return ValidationProblem(ModelState);
+            }
+
+            _mapper.Map(itemUpdateDTO, item);
+            _repository.UpdateItem(item);
+            _repository.SaveChanges();
+
+            return NoContent();
+        }
+
     }
 }
