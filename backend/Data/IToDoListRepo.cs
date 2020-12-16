@@ -14,5 +14,6 @@ namespace backend.Data
         ToDoItem GetItemById(int Id);
         void CreateItem(ToDoItem item);
         void UpdateItem(ToDoItem item);
+        void DeleteItem(ToDoItem item);
     }
 }

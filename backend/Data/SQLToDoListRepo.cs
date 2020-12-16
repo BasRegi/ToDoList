@@ -37,12 +37,21 @@ namespace backend.Data
 
         public void UpdateItem(ToDoItem item)
         {
-            
+            //Nothing to do
         }
 
         public bool SaveChanges()
         {
            return (_context.SaveChanges() >= 0);
+        }
+
+        public void DeleteItem(ToDoItem item)
+        {
+            if (item == null)
+            {
+                throw new ArgumentNullException(nameof(item));
+            }
+            _context.ToDoItems.Remove(item);
         }
     }
 }

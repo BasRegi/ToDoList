@@ -106,5 +106,21 @@ namespace backend.Controllers
             return NoContent();
         }
 
+        //DELETE api/todoitems/{id}
+        [HttpDelete("{id}")]
+        public ActionResult DeleteItem(int id)
+        {
+            var item = _repository.GetItemById(id);
+            if (item == null)
+            {
+                return NotFound();
+            }
+
+            _repository.DeleteItem(item);
+            _repository.SaveChanges();
+
+            return NoContent();
+        }
+
     }
 }
