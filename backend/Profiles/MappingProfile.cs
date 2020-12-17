@@ -8,9 +8,9 @@ using backend.Models;
 
 namespace backend.Profiles
 {
-    public class ToDoItemsProfile : Profile
+    public class MappingProfile : Profile
     {
-        public ToDoItemsProfile()
+        public MappingProfile()
         {
             CreateMap<ToDoItem, ToDoItemReadDTO>();
             CreateMap<ToDoItemCreateDTO, ToDoItem>();

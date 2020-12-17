@@ -29,7 +29,7 @@ namespace backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ToDoListContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection")));
+            services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection")));
 
             services.AddControllers().AddNewtonsoftJson
                 (
@@ -38,7 +38,7 @@ namespace backend
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-            services.AddScoped<IToDoListRepo, SQLToDoListRepo>();
+            services.AddScoped<IToDoItemsRepo, ToDoItemsRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -15,10 +15,10 @@ namespace backend.Controllers
     [ApiController]
     public class ToDoItemsController : ControllerBase
     {
-        private readonly IToDoListRepo _repository;
+        private readonly IToDoItemsRepo _repository;
         private readonly IMapper _mapper;
 
-        public ToDoItemsController(IToDoListRepo repository, IMapper mapper)
+        public ToDoItemsController(IToDoItemsRepo repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;

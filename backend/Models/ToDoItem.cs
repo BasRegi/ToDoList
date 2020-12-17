@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -28,5 +29,9 @@ namespace backend.Models
         [Required]
         [DataType(DataType.DateTime)]
         public DateTime Deadline { get; set; }
+
+        [ForeignKey(nameof(TaskList))]
+        public int TaskListId { get; set; }
+        public TaskList TaskList { get; set; }
     }
 }

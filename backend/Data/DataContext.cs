@@ -7,14 +7,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace backend.Data
 {
-    public class ToDoListContext : DbContext
+    public class DataContext : DbContext
     {
-        public ToDoListContext(DbContextOptions<ToDoListContext> options)
+        public DataContext(DbContextOptions<DataContext> options)
             : base(options)
         {
 
         }
 
         public DbSet<ToDoItem> ToDoItems { get; set; }
+        public DbSet<TaskList> TaskList { get; set; }
     }
 }

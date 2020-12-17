@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace backend.Data
 {
-    public class SQLToDoListRepo : IToDoListRepo
+    public class ToDoItemsRepo : IToDoItemsRepo
     {
-        private readonly ToDoListContext _context;
-        public SQLToDoListRepo(ToDoListContext context)
+        private readonly DataContext _context;
+        public ToDoItemsRepo(DataContext context)
         {
             _context = context;
         }
@@ -38,11 +38,6 @@ namespace backend.Data
         public void UpdateItem(ToDoItem item)
         {
             //Nothing to do
-        }
-
-        public bool SaveChanges()
-        {
-           return (_context.SaveChanges() >= 0);
         }
 
         public void DeleteItem(ToDoItem item)

@@ -6,10 +6,8 @@ using backend.Models;
 
 namespace backend.Data
 {
-    public interface IToDoListRepo
+    public interface IToDoItemsRepo
     {
-        bool SaveChanges();
-
         IEnumerable<ToDoItem> GetAll();
         ToDoItem GetItemById(int Id);
         void CreateItem(ToDoItem item);

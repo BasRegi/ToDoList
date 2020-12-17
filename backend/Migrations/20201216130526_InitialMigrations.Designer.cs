@@ -9,7 +9,7 @@ using backend.Data;
 
 namespace backend.Migrations
 {
-    [DbContext(typeof(ToDoListContext))]
+    [DbContext(typeof(DataContext))]
     [Migration("20201216130526_InitialMigrations")]
     partial class InitialMigrations
     {

@@ -8,7 +8,7 @@ using backend.Data;
 
 namespace backend.Migrations
 {
-    [DbContext(typeof(ToDoListContext))]
+    [DbContext(typeof(DataContext))]
     partial class ToDoListContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
