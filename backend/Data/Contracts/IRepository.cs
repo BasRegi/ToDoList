@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace backend.Data.Contracts
 {
-    interface IRepository
+    public interface IRepository
     {
         IToDoItemsRepo ToDoItemsRepo { get; }
         ITaskListRepo TaskListRepo { get; }

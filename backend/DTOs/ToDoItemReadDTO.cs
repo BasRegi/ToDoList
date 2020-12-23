@@ -16,5 +16,7 @@ namespace backend.DTOs
         public bool isComplete { get; set; }
 
         public DateTime Deadline { get; set; }
+
+        public int TaskListId { get; set; }
     }
 }

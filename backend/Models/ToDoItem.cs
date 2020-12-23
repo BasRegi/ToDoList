@@ -32,6 +32,5 @@ namespace backend.Models
 
         [ForeignKey(nameof(TaskList))]
         public int TaskListId { get; set; }
-        public TaskList TaskList { get; set; }
     }
 }

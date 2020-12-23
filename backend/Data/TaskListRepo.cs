@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using backend.Data.Contracts;
 using backend.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Data
 {
@@ -37,17 +39,17 @@ namespace backend.Data
 
         public IEnumerable<TaskList> GetAll()
         {
-            return _context.TaskList.ToList();
+            return _context.TaskList.Include(x => x.ToDoItems).ToList();
         }
 
         public TaskList GetListById(int Id)
         {
-            return _context.TaskList.FirstOrDefault(x => x.Id == Id);
+            return _context.TaskList.Include(y => y.ToDoItems).FirstOrDefault(x => x.Id == Id);
         }
 
         public void UpdateList(TaskList list)
         {
-            throw new NotImplementedException();
+            //Nothing to do
         }
     }
 }

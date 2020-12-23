@@ -22,5 +22,8 @@ namespace backend.DTOs
         [Required]
         [DataType(DataType.DateTime)]
         public DateTime Deadline { get; set; }
+
+        [Required]
+        public int TaskListId { get; set; }
     }
 }
